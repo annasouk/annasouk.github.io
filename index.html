@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anna Soukhovei — Robotics Researcher</title>
+  <meta name="description" content="Anna Soukhovei — robotics researcher at CU Boulder working on tactile sensing, robot manipulation, and autonomous systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a2e;
+      --color-text-muted: #555;
+      --color-accent: #2d6a4f;
+      --color-accent-light: #d8f3dc;
+      --color-border: #e0e0e0;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 960px;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: var(--color-accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.75; }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 250, 250, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+      padding: 1rem 2rem;
+    }
+    nav .inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { font-weight: 700; font-size: 1.1rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul a { color: var(--color-text-muted); font-size: 0.9rem; font-weight: 500; }
+    nav ul a:hover { color: var(--color-accent); opacity: 1; }
+
+    /* SECTIONS */
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .hero-links a:hover {
+      background: var(--color-accent-light);
+      border-color: var(--color-accent);
+      opacity: 1;
+    }
+    .hero-links a.primary {
+      background: var(--color-accent);
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+    .hero-links a.primary:hover { background: #1b4332; }
+
+    /* ABOUT */
+    .about p { color: var(--color-text-muted); max-width: 640px; margin-bottom: 1rem; }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+    .project-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.9rem; color: var(--color-text-muted); flex: 1; }
+    .project-card .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .project-card .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+    }
+    .project-card .card-link {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* SKILLS */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .skills-list span {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: var(--color-surface);
+    }
+
+    /* CONTACT */
+    .contact p { color: var(--color-text-muted); max-width: 500px; margin-bottom: 1.5rem; }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-links a {
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+    .contact-links a:hover {
+      background: var(--color-accent-light);
+      border-color: var(--color-accent);
+      opacity: 1;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      section { padding: 3rem 1.25rem; }
+      nav { padding: 0.75rem 1.25rem; }
+      nav ul { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <span class="logo">Anna Soukhovei</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="section-label">Robotics Researcher</p>
+  <h1>Hi, I'm Anna.</h1>
+  <p>
+    I'm a robotics researcher at the University of Colorado Boulder, working on tactile sensing, robot manipulation, and autonomous systems in the <a href="https://github.com/correlllab" target="_blank">Correll Lab</a>.
+  </p>
+  <div class="hero-links">
+    <a class="primary" href="#projects">View My Work</a>
+    <a href="https://github.com/annasouk" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a href="mailto:anna.soukhovei@colorado.edu">Email Me</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <p class="section-label">About</p>
+  <h2>Research & Background</h2>
+  <p>
+    I develop tactile sensing systems and robot control software for the GenTact project, building skin-like sensors that give robots a sense of touch. My work spans URDF modeling, ROS 2 integration, point cloud visualization, and real-time teleoperation.
+  </p>
+  <p>
+    I also have experience with autonomous racing platforms and numerical methods for engineering applications.
+  </p>
+</section>
+
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <h2>Selected Work</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>GenTact Hybrid Skin — ROS Tools</h3>
+      <p>ROS 2 tooling for hybrid tactile skin sensors on robot manipulators. Includes drivers, visualization nodes, and integration with the Franka Emika Panda arm.</p>
+      <div class="tags">
+        <span class="tag">ROS 2</span>
+        <span class="tag">Python</span>
+        <span class="tag">Tactile Sensing</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/gentact_ros_tools_hybrid" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>GenTact URDF Descriptions</h3>
+      <p>URDF builder for GenTact skin units — generates robot descriptions with tactile skin segments on arbitrary links, supporting front and back skin placement.</p>
+      <div class="tags">
+        <span class="tag">URDF</span>
+        <span class="tag">Python</span>
+        <span class="tag">Robot Modeling</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/gentact_descriptions_hybrid" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Franka Xbox Teleoperation</h3>
+      <p>Xbox 360 controller interface for real-time teleoperation of a Franka Emika Panda robot arm. Provides intuitive joystick-based end-effector control.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Franka Emika</span>
+        <span class="tag">Teleoperation</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/franka_xbox_control_white_pc" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Point Cloud Visualization</h3>
+      <p>Visualizing point cloud data from tactile sensor grids — mapping pressure readings to 3D spatial representations for analysis and debugging.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">3D Visualization</span>
+        <span class="tag">Sensors</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/pointcloud" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>RoboRacer</h3>
+      <p>ROS packages for an autonomous racing platform — perception, planning, and control for high-speed robotic competition.</p>
+      <div class="tags">
+        <span class="tag">ROS</span>
+        <span class="tag">Autonomous Driving</span>
+        <span class="tag">Jupyter</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/BDE-RoboRacer" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Numerical Computation</h3>
+      <p>Numerical methods and computational techniques applied to engineering problems — exploring approximation, interpolation, and simulation.</p>
+      <div class="tags">
+        <span class="tag">Jupyter</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Mathematics</span>
+      </div>
+      <a class="card-link" href="https://github.com/annasouk/Numerical-Computation-Final---AS-ZM" target="_blank">View on GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <p class="section-label">Technologies</p>
+  <h2>Tools & Skills</h2>
+  <div class="skills-list">
+    <span>Python</span>
+    <span>ROS 2</span>
+    <span>C++</span>
+    <span>URDF / Xacro</span>
+    <span>Franka Emika</span>
+    <span>Tactile Sensing</span>
+    <span>Point Clouds</span>
+    <span>Git</span>
+    <span>Linux</span>
+    <span>NumPy / SciPy</span>
+    <span>Jupyter</span>
+    <span>Blender</span>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <p class="section-label">Contact</p>
+  <h2>Get In Touch</h2>
+  <p>I'm always interested in collaboration opportunities, research discussions, or just saying hello.</p>
+  <div class="contact-links">
+    <a href="mailto:anna.soukhovei@colorado.edu">Email</a>
+    <a href="https://github.com/annasouk" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p>Anna Soukhovei · University of Colorado Boulder · 2026</p>
+</footer>
+
+</body>
+</html>
